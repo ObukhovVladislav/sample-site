@@ -1,0 +1,11 @@
+django-simple-captcha
+django-precise-bbcode
+django-bootstrap4
+Pillow
+django-cleanup
+easy-thumbnails
+python-social-auth
+django-rest-framework
+django-cors-headers
+mod-wsgi
+Angular

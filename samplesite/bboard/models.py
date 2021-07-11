@@ -8,18 +8,14 @@ class Bb(models.Model):
     price = models.FloatField(null=True, blank=True, verbose_name='Цена')
     published = models.DateTimeField(auto_now_add=True, db_index=True, verbose_name='Опубликовано')
 
-    KINDS = (
-        (None, 'Выберите разряд публикуемого объявления'),
-        ('b', 'Куплю'),
-        ('s', 'Продам'),
-        ('c', 'Обменяю'),
-    )
-    kind = models.CharField(max_length=1, choices=KINDS, verbose_name='Вид')
-
     class Meta:
         verbose_name_plural = 'Объявления'
         verbose_name = 'Объявление'
         ordering = ['-published']
+        unique_together = (
+            ('title', 'published'),
+            ('title', 'price', 'rubric')
+        )
 
 
 class Rubric(models.Model):
